@@ -1,0 +1,41 @@
+[
+  {
+    "id": 8629,
+    "uid": "09629bd6-952e-44e8-a78c-a5e5b885ac11",
+    "password": "GUJqDvdN2M",
+    "first_name": "Steven",
+    "last_name": "Feest",
+    "username": "steven.feest",
+    "email": "steven.feest@email.com",
+    "avatar": "https://robohash.org/pariaturiuresunt.png?size=300x300\u0026set=set1",
+    "gender": "Polygender",
+    "phone_number": "+266 1-255-378-7223 x65730",
+    "social_insurance_number": "311277776",
+    "date_of_birth": "2000-07-12",
+    "employment": {
+      "title": "Customer Coordinator",
+      "key_skill": "Confidence"
+    },
+    "address": {
+      "city": "Schroederburgh",
+      "street_name": "Shields River",
+      "street_address": "433 Veum Springs",
+      "zip_code": "73789",
+      "state": "Georgia",
+      "country": "United States",
+      "coordinates": {
+        "lat": -63.55108232140482,
+        "lng": 152.7255494543782
+      }
+    },
+    "credit_card": {
+      "cc_number": "5450-3052-0925-1435"
+    },
+    "subscription": {
+      "plan": "Starter",
+      "status": "Pending",
+      "payment_method": "Bitcoins",
+      "term": "Annual"
+    }
+  }
+]
