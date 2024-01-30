@@ -9,33 +9,29 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws Exception {
         DBConnector dc = new DBConnector();
-        ResultSet rs=select(dc,"select users.*, plan from users\n" +
+        ResultSet rs=dc.select("select users.*, plan from users\n" +
                 "join subscription s on users.subscription_id = s.subscription_id\n" +
                 "where plan='Diamond'");
         viewtablefromrs(rs);
         dc.connection.close();
     }
+    //? gets json string data from the api
     public static String requestapidata(String param){
         ApiConnector ac = new ApiConnector();
         return ac.getdata(param);
     }
-
+    //? maps the json data to the UserData class
     public static List<UserData> mapUsersfromJson(String json) throws Exception{
-        return new ObjectMapper().readValue(json, new TypeReference<List<UserData>>(){});
+        return new ObjectMapper().readValue(json, new TypeReference<>(){});
     }
-
-    public static void insertGenUsers(int usercount) throws Exception {
+    //? combines the 2 function to generate a variable ammount of users in the database
+    public static void insertGenUsers(DBConnector dc, int usercount) throws Exception {
         List<UserData> datalist = mapUsersfromJson(requestapidata("users?size="+usercount));
-        DBConnector dc = new DBConnector();
         for (UserData data: datalist) {
             dc.insertUserData(data);
         }
     }
-
-    public static ResultSet select(DBConnector dc, String query) throws Exception{
-        return dc.select(query);
-    }
-
+    //? makes a jtable in a jframe to view tables (result sets) returned from select queries
     public static void viewtablefromrs(ResultSet rs) throws Exception{
         JFrame fr = new JFrame();
         fr.setLocationRelativeTo(null);
